@@ -36,10 +36,6 @@ Created a contact us section with contact information of the company.
 
 ## Incomplete Features
 
-### Add Email
-
-Email unknown at the moment
-
 ### Connect to domain
 
 Modality unknown
@@ -48,5 +44,9 @@ Modality unknown
 
 Number of files with purpose unknown:
 `robots.txt`, `reportWebVitals.js`, `setupTests.js`, `App.test.js` `App.css`, `index.css`, `index.js`
+
+### Pest Information
+
+Maybe implement a drop down for each pest with some useful information
 
 All rights reserved for Aareb Chowdhury @akchdhry
