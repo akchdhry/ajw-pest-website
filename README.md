@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# A.J. Williamson Pest Control Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Complete Features
 
-## Available Scripts
+### Header Section
 
-In the project directory, you can run:
+Header with Title and Navigation Bar for 4 pages.
 
-### `npm start`
+### Hero Section
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Created hero section with logo, motto, and quick bio.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Services
 
-### `npm test`
+Built services section with cards for each pest service offered.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### About
 
-### `npm run build`
+Created about section with information a button for reviews on [Angi](angi.com).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Slider.js`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Implemented code for a working Slider displaying some different reviews.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Recommendations
 
-### `npm run eject`
+Developed a recommendations section with a list of different Insect Problem Prevention tips.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `Box()`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Programmed a JS component that toggles the tips/tricks checkboxes in the recommendations section.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Contact Us
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Created a contact us section with contact information of the company.
 
-## Learn More
+## Incomplete Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Add Email
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Email unknown at the moment
 
-### Code Splitting
+### Connect to domain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Modality unknown
 
-### Analyzing the Bundle Size
+### Find out what to do with miscellaneous files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Number of files with purpose unknown:
+`robots.txt`, `reportWebVitals.js`, `setupTests.js`, `App.test.js` `App.css`, `index.css`, `index.js`
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All rights reserved for Aareb Chowdhury @akchdhry
