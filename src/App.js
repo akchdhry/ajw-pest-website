@@ -196,10 +196,10 @@ const PestControlWebsite = () => {
               <Phone className="w-6 h-6 text-pest-red" />
               <span>(978) 443-8245</span>
             </a>
-            <div className="flex items-center space-x-3">
+            <a href='mailto:ajwilliamsonpest@gmail.com' className="flex items-center space-x-3">
               <Mail className="w-6 h-6 text-pest-red" />
-              <span></span>
-            </div>
+              <span>ajwilliamsonpest@gmail.com</span>
+            </a>
             <div className="flex items-center space-x-3">
               <Clock className="w-6 h-6 text-pest-red" />
               <span>Monday - Friday: 8AM - 5PM <br></br> Saturday: 8AM - 3PM</span>
