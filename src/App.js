@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, Clock, MapPin, CheckCircle, Square, SquareCheckBig } from 'lucide-react';
+import { Phone, Mail, Clock, MapPin, CheckCircle, Square, SquareCheckBig, X, Menu} from 'lucide-react';
 import logo from './images/ajwlogo.png'
 import ant from './images/carpenter-ant.png'
 import termite from './images/termite.jpg'
@@ -10,13 +10,17 @@ import Slider from './Slider';
 
 const PestControlWebsite = () => {
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   const Box = () => {
     const [isToggled, setIsToggled] = useState(false);
 
     const handleClick = () => {setIsToggled(!isToggled)}
 
     return (
-    <button onClick={handleClick}> {
+    <button onClick={handleClick} className='touch-manipulation' > {
       isToggled ? 
       <SquareCheckBig className="w-6 h-6 text-pest-red flex-shrink-0"/> : 
       <Square className="w-6 h-6 text-pest-red flex-shrink-0"/> 
@@ -49,12 +53,38 @@ const PestControlWebsite = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Mobile Menu Toggle */}
+      <button 
+        className="md:hidden fixed top-4 right-4 z-50 bg-pest-navy p-3 rounded-lg" 
+        onClick={toggleMobileMenu}
+        aria-label="Toggle Mobile Menu"
+      >
+        {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-pest-navy z-40 md:hidden">
+          <nav className="flex flex-col items-center justify-center h-full space-y-6">
+            {['Services', 'About', 'Recommendations', 'Contact'].map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase().replace(' ', '')}`} 
+                onClick={toggleMobileMenu} 
+                className="text-2xl text-white hover:text-blue-300 touch-manipulation"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
 
       {/* Header */}
       <header className="bg-pest-navy text-pest-logo-grey py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-bold">A.J. Williamson Termite and Pest Control</h1>
+            <h1 className="text-xl md:text-2xl font-bold truncate">A.J. Williamson Termite and Pest Control</h1>
           </div>
           <nav className="hidden md:flex space-x-6">
             <a href="#services" className="hover:text-blue-300">Services</a>
@@ -69,47 +99,41 @@ const PestControlWebsite = () => {
       <section className="bg-pest-navy-light text-white py-10">
         <div className="container mx-auto px-4 text-center">
           <div className='flex justify-center mb-6'>
-            <img src={logo} alt='A.J. Williamson Termite and Pest Control' className='w-72'></img>
+            <img 
+              src={logo} 
+              alt='A.J. Williamson Termite and Pest Control' 
+              className='w-48 md:w-72 object-contain'
+              loading="lazy"
+            />
           </div>
-          <h2 className="text-4xl font-bold mb-6">We can help identify your pests!</h2>
-          <p className="text-xl mb-8">We are a family-owned and family-operated business serving the Sudbury, MA area since 1971</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">We can help identify your pests!</h2>
+          <p className="text-base md:text-xl mb-8">We are a family-owned and family-operated business serving the Sudbury, MA area since 1971</p>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className=" bg-gray-200 py-16">
+      <section id="services" className="bg-gray-200 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Specialties</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-
-            <div className="bg-white p-6 rounded-lg shadow-md justify-center text-center">
-              <div className='flex justify-center'>
-                <img src={ant} alt='Carpenter Ants' className='w-40 rounded-xl mb-5'></img>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Our Specialties</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              {img: ant, alt: 'Carpenter Ants', title: 'Carpenter Ants'},
+              {img: termite, alt: 'Termites', title: 'Termites'},
+              {img: wasp, alt: 'Wasps', title: 'Wasps'},
+              {img: mouse, alt: 'Mice', title: 'Mice'}
+            ].map(({img, alt, title}) => (
+              <div key={alt} className="bg-white p-6 rounded-lg shadow-md justify-center text-center">
+                <div className='flex justify-center'>
+                  <img 
+                    src={img} 
+                    alt={alt} 
+                    className='w-40 h-40 object-cover rounded-xl mb-5'
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Carpenter Ants</h3>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md justify-center text-center">
-              <div className='flex justify-center'>
-                <img src={termite} alt='Termites' className='w-40 rounded-xl mb-5'></img>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Termites</h3>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md justify-center text-center">
-              <div className='flex justify-center'>
-                <img src={wasp} alt='Wasps' className='w-40 rounded-xl mb-5'></img>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Wasps</h3>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md justify-center text-center">
-              <div className='flex justify-center'>
-                <img src={mouse} alt='Mice' className='w-40 rounded-xl mb-5'></img>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Mice</h3>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -117,71 +141,68 @@ const PestControlWebsite = () => {
       {/* About Section */}
       <section id="about" className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Why Choose Us?</h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-8">
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold">Residential and Commercial Pest Control</h3>
-                  <p className="text-gray-600"><strong>For over 50 years</strong>, The A.J. Williamson Pest Control company has been serving the residential & commercial area of Metrowest, MA with <strong>exceptional results</strong>.</p>
+              {[
+                {
+                  icon: <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />,
+                  title: "Residential and Commercial Pest Control",
+                  description: <p className="text-gray-600"><strong>For over 50 years</strong>, The A.J. Williamson Pest Control company has been serving the residential & commercial area of Metrowest, MA with <strong>exceptional results</strong>.</p>
+                },
+                {
+                  icon: <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />,
+                  title: "Special Offer",
+                  description: <p className="text-gray-600">We offer Termite & Pest Inspections for <strong>$150.00</strong>, including a one year warranty.</p>
+                },
+                {
+                  icon: <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />,
+                  title: "Free Estimates",
+                  description: <p className="text-gray-600">Contact us at <strong>(978) 443-8245</strong> for a free estimate!</p>
+                }
+              ].map(({icon, title, description}) => (
+                <div key={title} className="flex items-start space-x-3 touch-manipulation">
+                  {icon}
+                  <div>
+                    <h3 className="text-base md:text-xl font-semibold">{title}</h3>
+                    {description}
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold">Special Offer</h3>
-                  <p className="text-gray-600">We offer Termite & Pest Inspections for <strong>$150.00</strong>, including a one year warranty.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold">Free Estimates</h3>
-                  <p className="text-gray-600">Contact us at <strong>(978) 443-8245</strong> for a free estimate!<br></br>
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
 
             <div className="space-y-4">
-              <Slider></Slider>
+              <Slider />
               <a
               href="https://www.angi.com/companylist/us/ma/sudbury/aj-williamson-termite-and-pest-reviews-73439.htm" target='_blank' rel='noreferrer'
-              className="flex justify-center mx-40 bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
+              className="flex text-center justify-center mx-40 bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
               See more reviews on Angi!
               </a>
+              
             </div>
           </div>
         </div>
       </section>
 
 
-      {/* Recommendation Section*/}
+      {/* Recommendations Section */}
       <section id="recommendations" className="py-16">
         <div className="container mx-auto px-4">
           <div className='text-center'>
-            <h2 className="text-4xl font-bold mb-6">Insect Problem Prevention</h2>
-            <p className="text-xl mb-16">We recommend considering all of these if you're selling your home:</p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6">Insect Problem Prevention</h2>
+            <p className="text-base md:text-xl mb-16">We recommend considering all of these if you're selling your home:</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-
-            {recs.map( (rec) => (
-            <div id={rec.id} className="flex items-start space-x-3">
-              {Box()}
-              <h3 className="font-semibold">
-                {rec.rec}
-              </h3>
-            </div>
-            ))};
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {recs.map((rec) => (
+              <div key={rec.id} className="flex items-center space-x-3 touch-manipulation">
+                {Box()}
+                <h3 className="font-semibold text-sm md:text-base">
+                  {rec.rec}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -190,24 +211,37 @@ const PestControlWebsite = () => {
       {/* Contact Section */}
       <section id="contact" className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
-          <div className="grid md:grid-cols-4 gap-8 font-semibold">
-            <a href='tel:978-443-8245' className="flex items-center space-x-3">
-              <Phone className="w-6 h-6 text-pest-red" />
-              <span>(978) 443-8245</span>
-            </a>
-            <a href='mailto:ajwilliamsonpest@gmail.com' className="flex items-center space-x-3">
-              <Mail className="w-6 h-6 text-pest-red" />
-              <span>ajwilliamsonpest@gmail.com</span>
-            </a>
-            <div className="flex items-center space-x-3">
-              <Clock className="w-6 h-6 text-pest-red" />
-              <span>Monday - Friday: 8AM - 5PM <br></br> Saturday: 8AM - 3PM</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <MapPin className="w-6 h-6 text-pest-red" />
-              <span>131 Barton Drive <br></br> Sudbury, MA 01776</span>
-            </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Contact Us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 font-semibold">
+            {[
+              {
+                icon: <Phone className="w-6 h-6 text-pest-red" />,
+                text: '(978) 443-8245',
+                href: 'tel:978-443-8245'
+              },
+              {
+                icon: <Mail className="w-6 h-6 text-pest-red" />,
+                text: 'ajwilliamsonpest@gmail.com',
+                href: 'mailto:ajwilliamsonpest@gmail.com'
+              },
+              {
+                icon: <Clock className="w-6 h-6 text-pest-red" />,
+                text: 'Monday - Friday: 8AM - 5PM\nSaturday: 8AM - 3PM'
+              },
+              {
+                icon: <MapPin className="w-6 h-6 text-pest-red" />,
+                text: '131 Barton Drive\nSudbury, MA 01776'
+              }
+            ].map(({icon, text, href}) => (
+              <a 
+                key={text} 
+                href={href} 
+                className="flex flex-col md:flex-row items-center justify-center md:justify-start space-x-3 touch-manipulation"
+              >
+                {icon}
+                <span className="text-center md:text-left mt-2 md:mt-0 text-sm md:text-base">{text}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -215,7 +249,7 @@ const PestControlWebsite = () => {
       {/* Footer */}
       <footer className="bg-pest-black text-pest-grey py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2016 A.J. Williamson Termite Control Co., Inc. | Sudbury, MA</p>
+          <p className="text-xs md:text-sm">&copy; 2016 A.J. Williamson Termite Control Co., Inc. | Sudbury, MA</p>
         </div>
       </footer>
     </div>
