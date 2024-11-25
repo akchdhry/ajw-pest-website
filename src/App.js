@@ -154,7 +154,7 @@ const PestControlWebsite = () => {
             <div className="space-y-4">
               <Slider></Slider>
               <a
-              href="https://www.angi.com/companylist/us/ma/sudbury/aj-williamson-termite-and-pest-reviews-73439.htm" target='_blank'
+              href="https://www.angi.com/companylist/us/ma/sudbury/aj-williamson-termite-and-pest-reviews-73439.htm" target='_blank' rel='noreferrer'
               className="flex justify-center mx-40 bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
               See more reviews on Angi!
               </a>
