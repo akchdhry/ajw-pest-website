@@ -80,7 +80,7 @@ const Slider = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className={`flex-shrink-0 w-full h-full flex justify-center text-black ${slide.color}`}
+              className={`flex-shrink-0 w-full h-5/6 flex justify-center overflow-scroll text-black ${slide.color}`}
             >
               {slide.content}
             </div>
