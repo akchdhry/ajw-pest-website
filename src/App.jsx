@@ -84,7 +84,7 @@ const PestControlWebsite = () => {
       <header className="bg-pest-navy text-pest-logo-grey py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <h1 className="text-xl md:text-2xl font-bold truncate">A.J. Williamson Termite and Pest Control</h1>
+            <h1 className="text-xl md:text-2xl font-bold truncate">A.J. Williamson Termite and Pest</h1>
           </div>
           <nav className="hidden md:flex space-x-6">
             <a href="#services" className="hover:text-blue-300">Services</a>
@@ -107,7 +107,8 @@ const PestControlWebsite = () => {
             />
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">We can help identify your pests!</h2>
-          <p className="text-base md:text-xl mb-8">We are a family-owned and family-operated business serving the Sudbury, MA area since 1971</p>
+          <p className="text-base md:text-xl mb-8">We are a family-owned and family-operated business serving the MetroWest area since 1971</p>
+          <i>State Licensed</i>
         </div>
       </section>
 
