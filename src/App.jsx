@@ -181,7 +181,7 @@ const PestControlWebsite = () => {
                 target='_blank' 
                 rel='noreferrer'
                 className="flex text-center justify-center max-w-72 mx-auto bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
-                See more reviews on Angi!
+                Read more reviews on Angi!
               </a>            
             </div>
 
