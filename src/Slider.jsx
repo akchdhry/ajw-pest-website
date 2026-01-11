@@ -71,7 +71,7 @@ const Slider = () => {
   return (
     <div className="relative w-full max-w-2xl mx-auto">
       {/* Main slider container */}
-      <div className="relative h-64 overflow-hidden rounded-lg">
+      <div className="relative h-72 overflow-hidden rounded-lg">
         {/* Slides */}
         <div 
           className="flex transition-transform duration-300 ease-in-out h-full"
@@ -80,7 +80,7 @@ const Slider = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className={`flex-shrink-0 w-full h-full flex items-center justify-center text-black ${slide.color}`}
+              className={`flex-shrink-0 w-full h-full flex justify-center text-black ${slide.color}`}
             >
               {slide.content}
             </div>
@@ -111,7 +111,7 @@ const Slider = () => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-white' : 'bg-white/50'
+                index === currentIndex ? 'bg-angie-orange' : 'bg-gray-500'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -145,7 +145,7 @@ const PestControlWebsite = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Why Choose Us?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-8">
+            <div className="space-y-14">
               {[
                 {
                   icon: <CheckCircle className="w-7 h-7 text-blue-600 flex-shrink-0" />,
@@ -173,16 +173,18 @@ const PestControlWebsite = () => {
               ))}
             </div>
 
+            <div className="space-y-1">
+              <Slider/>
 
-            <div className="space-y-4">
-              <Slider />
               <a
-              href="https://www.angi.com/companylist/us/ma/sudbury/aj-williamson-termite-and-pest-reviews-73439.htm" target='_blank' rel='noreferrer'
-              className="flex text-center justify-center mx-40 bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
-              See more reviews on Angi!
-              </a>
-              
+                href="https://www.angi.com/companylist/us/ma/sudbury/aj-williamson-termite-and-pest-reviews-73439.htm" 
+                target='_blank' 
+                rel='noreferrer'
+                className="flex text-center justify-center max-w-72 mx-auto bg-angie-orange text-white py-3 px-5 rounded-lg font-semibold hover:bg-angie-hover"> 
+                See more reviews on Angi!
+              </a>            
             </div>
+
           </div>
         </div>
       </section>
